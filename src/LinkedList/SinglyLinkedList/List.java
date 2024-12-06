@@ -1,46 +1,9 @@
-package LinkedList;
+package LinkedList.SinglyLinkedList;
 
-class Main {
-    public static void main(String[] args) {
-        SinglyLinkedList list = new SinglyLinkedList();
-
-        // add nodes
-        list.add("A");
-        list.add("B");
-        list.add("C");
-        list.add("D");
-        list.add("E");
-
-        // show list
-        list.display();
-
-        // search an element
-        String valueToSearch = "C";
-        System.out.println("is the " + valueToSearch + " value in the list? " + list.search(valueToSearch));
-
-        // delete node
-        String valueToDelete = "E";
-        list.delete(valueToDelete);
-
-        // show list
-        list.display();
-    }
-}
-
-class Node {
-    String data;
-    Node next;
-
-    public Node(String data){
-        this.data = data;
-        this.next = null;
-    }
-}
-
-public class SinglyLinkedList {
+public class List {
     private Node head;
 
-    public SinglyLinkedList(){
+    public List(){
         this.head = null;
     }
 
@@ -95,23 +58,22 @@ public class SinglyLinkedList {
             return;
         }
 
-        if(head.data.equals(value)){
+        if (head.data.equals(value)) {
             head = head.next;
             return;
         }
 
         Node current = head;
 
-        while(current.next != null && !current.next.data.equals(value)){
+        while (current.next != null && !current.next.data.equals(value)) {
             current = current.next;
         }
 
-        if(current.next == null){
+        if (current.next == null) {
             System.out.println("El valor no se encuentra en la lista");
         } else {
             current.next = current.next.next;
         }
-
     }
 
 }
